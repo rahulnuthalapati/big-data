@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Visualize</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        .top-bar {
+        background-color: #0d4976;
+        overflow: hidden;
+        }
+
+        .top-bar a {
+            float: left;
+            display: block;
+            color: white;
+            padding: 14px 16px;
+        }
+
+        .top-bar a:hover {
+            background-color: #013257;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <h1 style="text-align:center; color: azure; size: 20px; display:inline; margin-left: 35%;">Yield Prediction by user</h1>
+        <a href="/">Home</a>
+    </div>
+    <p>
+        Yield Value: {{yield_value}}
+    </p>
+</body>
+</html>
