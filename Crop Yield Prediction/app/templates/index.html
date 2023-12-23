@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Prediction</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        .top-bar {
+        background-color: #0d4976;
+        overflow: hidden;
+        }
+
+        .top-bar a {
+            float: left;
+            display: block;
+            color: white;
+            padding: 14px 16px;
+        }
+
+        .top-bar a:hover {
+            background-color: #013257;
+            color: white;
+        }
+        
+        .container {
+        display: flex;
+        width: 100vw; 
+        }
+
+        .box {
+        height: 100vh; 
+        padding: 10px;
+        }
+
+        .box1 {
+        flex: 1;
+        }
+
+        .box2 {
+        flex: 1;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <h1 style="text-align:center; color: azure; size: 20px; display:inline; margin-left: 35%;">Crop Yield Prediction</h1>
+        <a href="/">Home</a>
+    </div>
+    <div class="container">
+        <div class="box box1">
+            <h2 style="margin-left: 35%;">Visualize from Dataset</h2>
+        <div style="margin-top: 20%; margin-left: 35%;">
+            <form action="/visualize" method="post" enctype="multipart/form-data">
+                <input type="file" name="folder_name" id="folder_name" placeholder="Browse Files" multiple="multiple">
+            </br></br></br>
+                <button style="display: block;" type="submit">Go to Visualize</button>
+            </form>
+        </div>
+        </div>
+        <div class="box box2">
+            <h3 style="margin-left: 35%;">Predict Yield from Features</h3>
+            <div style="margin-top: 20%; margin-left: 35%;">
+            <form action="/user_visualize" method="post"  enctype="multipart/form-data">
+                <label>Enter Year</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="number" name="year" id="year" placeholder="Enter Value"></br></br></br>
+                <label>Enter Rainfall in MM</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="number" name="rainfall" id="rainfall" placeholder="Enter Value"></br></br></br>
+                <label>Enter Temperature (C)</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="number" name="temp" id="temp" placeholder="Enter Value"></br></br></br>
+                <label>Enter Pesticide (Tonnes)</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="number" name="pesticides" id="pesticides" placeholder="Enter Value"></br></br></br>
+                <label>Choose Country</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                <select name="country" id="country">
+                <option value="Country_Albania">Country_Albania</option><option value="Country_Algeria">Country_Algeria</option><option value="Country_Angola">Country_Angola</option><option value="Country_Argentina">Country_Argentina</option><option value="Country_Armenia">Country_Armenia</option><option value="Country_Australia">Country_Australia</option><option value="Country_Austria">Country_Austria</option><option value="Country_Azerbaijan">Country_Azerbaijan</option><option value="Country_Bahamas">Country_Bahamas</option><option value="Country_Bahrain">Country_Bahrain</option><option value="Country_Bangladesh">Country_Bangladesh</option><option value="Country_Belarus">Country_Belarus</option><option value="Country_Belgium">Country_Belgium</option><option value="Country_Botswana">Country_Botswana</option><option value="Country_Brazil">Country_Brazil</option><option value="Country_Bulgaria">Country_Bulgaria</option><option value="Country_Burkina Faso">Country_Burkina Faso</option><option value="Country_Burundi">Country_Burundi</option><option value="Country_Cameroon">Country_Cameroon</option><option value="Country_Canada">Country_Canada</option><option value="Country_Central African Republic">Country_Central African Republic</option><option value="Country_Chile">Country_Chile</option><option value="Country_Colombia">Country_Colombia</option><option value="Country_Croatia">Country_Croatia</option><option value="Country_Denmark">Country_Denmark</option><option value="Country_Dominican Republic">Country_Dominican</option><option value="Country_Ecuador">Country_Ecuador</option><option value="Country_Egypt">Country_Egypt</option><option value="Country_El Salvador">Country_El</option><option value="Country_Eritrea">Country_Eritrea</option><option value="Country_Estonia">Country_Estonia</option><option value="Country_Finland">Country_Finland</option><option value="Country_France">Country_France</option><option value="Country_Germany">Country_Germany</option><option value="Country_Ghana">Country_Ghana</option><option value="Country_Greece">Country_Greece</option><option value="Country_Guatemala">Country_Guatemala</option><option value="Country_Guinea">Country_Guinea</option><option value="Country_Guyana">Country_Guyana</option><option value="Country_Haiti">Country_Haiti</option><option value="Country_Honduras">Country_Honduras</option><option value="Country_Hungary">Country_Hungary</option><option value="Country_India">Country_India</option><option value="Country_Indonesia">Country_Indonesia</option><option value="Country_Iraq">Country_Iraq</option><option value="Country_Ireland">Country_Ireland</option><option value="Country_Italy">Country_Italy</option><option value="Country_Jamaica">Country_Jamaica</option><option value="Country_Japan">Country_Japan</option><option value="Country_Kazakhstan">Country_Kazakhstan</option><option value="Country_Kenya">Country_Kenya</option><option value="Country_Latvia">Country_Latvia</option><option value="Country_Lebanon">Country_Lebanon</option><option value="Country_Lesotho">Country_Lesotho</option><option value="Country_Libya">Country_Libya</option><option value="Country_Lithuania">Country_Lithuania</option><option value="Country_Madagascar">Country_Madagascar</option><option value="Country_Malawi">Country_Malawi</option><option value="Country_Malaysia">Country_Malaysia</option><option value="Country_Mali">Country_Mali</option><option value="Country_Mauritania">Country_Mauritania</option><option value="Country_Mauritius">Country_Mauritius</option><option value="Country_Mexico">Country_Mexico</option><option value="Country_Montenegro">Country_Montenegro</option><option value="Country_Morocco">Country_Morocco</option><option value="Country_Mozambique">Country_Mozambique</option><option value="Country_Namibia">Country_Namibia</option><option value="Country_Nepal">Country_Nepal</option><option value="Country_Netherlands">Country_Netherlands</option><option value="Country_New Zealand">Country_New Zealand</option><option value="Country_Nicaragua">Country_Nicaragua</option><option value="Country_Niger">Country_Niger</option><option value="Country_Norway">Country_Norway</option><option value="Country_Pakistan">Country_Pakistan</option><option value="Country_Papua New Guinea">Country_Papua New Guinea</option><option value="Country_Peru">Country_Peru</option><option value="Country_Poland">Country_Poland</option><option value="Country_Portugal">Country_Portugal</option><option value="Country_Qatar">Country_Qatar</option><option value="Country_Romania">Country_Romania</option><option value="Country_Rwanda">Country_Rwanda</option><option value="Country_Saudi Arabia">Country_Saudi Arabia</option><option value="Country_Senegal">Country_Senegal</option><option value="Country_Slovenia">Country_Slovenia</option><option value="Country_South Africa">Country_South Africa</option><option value="Country_Spain">Country_Spain</option><option value="Country_Sri Lanka">Country_Sri Lanka</option><option value="Country_Sudan">Country_Sudan</option><option value="Country_Suriname">Country_Suriname</option><option value="Country_Sweden">Country_Sweden</option><option value="Country_Switzerland">Country_Switzerland</option><option value="Country_Tajikistan">Country_Tajikistan</option><option value="Country_Thailand">Country_Thailand</option><option value="Country_Tunisia">Country_Tunisia</option><option value="Country_Turkey">Country_Turkey</option><option value="Country_Uganda">Country_Uganda</option><option value="Country_Ukraine">Country_Ukraine</option><option value="Country_United Kingdom">Country_United Kingdom</option><option value="Country_Uruguay">Country_Uruguay</option><option value="Country_Zambia">Country_Zambia</option><option value="Country_Zimbabwe">Country_Zimbabwe</option>
+                </select>
+                </br></br></br>
+                <label>Choose Item</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                <select name="item" id="item">
+                <option value="Item_Cassava">Item_Cassava</option><option value="Item_Maize">Item_Maize</option><option value="Item_Plantains and others">Item_Plantains and others</option><option value="Item_Potatoes">Item_Potatoes</option><option value="Item_Rice paddy">Item_Rice</option><option value="Item_Sorghum">Item_Sorghum</option><option value="Item_Soybeans">Item_Soybeans</option><option value="Item_Sweet potatoes">potatoes</option><option value="Item_Wheat">Item_Wheat</option><option value="Item_Yams">Item_Yams</option>
+                </select>
+                </br></br></br>
+                <label>Use Latest Model?</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="checkbox" id="use_latest_model" name="use_latest_model" value="on">
+                <button style="margin-left: 20%;" style="display: block;" type="submit">Predict the Crop Yield</button>
+            </form>
+        </div>
+        </div>
+    </div>
+</body>
+</html>
